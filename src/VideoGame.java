@@ -4,7 +4,7 @@ import java.util.List;
 
 public class VideoGame {
     private String name;
-    private ArrayList<String> genre;
+    private ArrayList<String> genres;
     private String ageRating;
     private String console;
 
@@ -27,7 +27,7 @@ public class VideoGame {
     }
 
     public ArrayList<String> getGenre() {
-        return genre;
+        return genres;
     }
 
     /**
@@ -48,6 +48,12 @@ public class VideoGame {
         return genres;
     }
 
+    /**
+     * This will validate that the argument contains genres from a recognized list of valid
+     * genres
+     * @param genres
+     * {"Horror","Point and click"}
+     */
     public void setGenre(ArrayList<String> genres) {
         ArrayList<String> validGenres = getAllGenres();
         for (String genre : genres)
@@ -56,7 +62,7 @@ public class VideoGame {
                 throw new IllegalArgumentException(genre + " is not valid.  Valid options are: "
                                 +validGenres);
         }
-        this.genre = genres;
+        this.genres = genres;
     }
 
     public String getAgeRating() {
